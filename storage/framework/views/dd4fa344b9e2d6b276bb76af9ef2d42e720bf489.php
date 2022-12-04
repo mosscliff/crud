@@ -9,20 +9,20 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url('/') }}">Praktikum Laravel</a>
+            <a class="navbar-brand" href="<?php echo e(url('/')); ?>">Praktikum Laravel</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('add-blog-post-form')}}" aria-current="page" href="#">Tugas Mahasiswa</a>
+                    <a class="nav-link" href="<?php echo e(url('add-blog-post-form')); ?>" aria-current="page" href="#">Tugas Mahasiswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('input-mahasiswa')}}">Input Data Mahasiswa</a>
+                    <a class="nav-link" href="<?php echo e(url('input-mahasiswa')); ?>">Input Data Mahasiswa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{url('show-data-mahasiswa')}}">Daftar Data Mahasiswa</a>
+                    <a class="nav-link active" href="<?php echo e(url('show-data-mahasiswa')); ?>">Daftar Data Mahasiswa</a>
                 </li>
                 </ul>
             </div>
@@ -31,16 +31,18 @@
     <div class="container mt-4">
     </div>
     <div class="container mt-5">
-        @if(session('status'))
+        <?php if(session('status')): ?>
         <div class="alert alert-success mt-5">
-            {{ session('status') }}
+            <?php echo e(session('status')); ?>
+
         </div>
-    @endif
-    @if(session('status-deleted'))
+    <?php endif; ?>
+    <?php if(session('status-deleted')): ?>
         <div class="alert alert-warning mt-5">
-            {{ session('status-deleted') }}
+            <?php echo e(session('status-deleted')); ?>
+
         </div>
-    @endif
+    <?php endif; ?>
         <div class="card">
             <div class="card-header text-center font-weight-bold">
                 Daftar Data Mahasiswa
@@ -57,45 +59,53 @@
                         <th>Jurusan</th>
                         <th colspan=2>Action</th>
                     </tr>
-                    @foreach($data as $isi)
+                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $isi): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr class="table-dark" style="width: 10%">
                         <td class="table-info">
-                            {{ $isi -> nim }}
+                            <?php echo e($isi -> nim); ?>
+
                         </td>
                         <td class="table-info" style="width: 20%">
-                            {{ $isi -> nama }}
+                            <?php echo e($isi -> nama); ?>
+
                         </td>
                         <td class="table-info" style="width: 5%">
-                            {{ $isi -> umur }}
+                            <?php echo e($isi -> umur); ?>
+
                         </td>
                         <td class="table-info" style="width: 25%">
-                            {{ $isi -> alamat }}
+                            <?php echo e($isi -> alamat); ?>
+
                         </td>
                         <td class="table-info" style="width: 10%">
-                            {{ $isi -> kota }}
+                            <?php echo e($isi -> kota); ?>
+
                         </td>
                         <td class="table-info" style="width: 10%">
-                            {{ $isi -> kelas }}
+                            <?php echo e($isi -> kelas); ?>
+
                         </td>
                         <td class="table-info" style="width: 10%">
-                            {{ $isi -> jurusan }}
+                            <?php echo e($isi -> jurusan); ?>
+
                         </td>
                         <td class="table-info" style="width: 5%">
-                            <a href="{{ url('delete-mahasiswa')}}/{{ $isi->nim }}">
+                            <a href="<?php echo e(url('delete-mahasiswa')); ?>/<?php echo e($isi->nim); ?>">
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </a>
                         </td>
                         <td class="table-info" style="width: 5%">
-                            <a href="{{url('edit-mahasiswa')}}/{{$isi->nim}}">
+                            <a href="<?php echo e(url('edit-mahasiswa')); ?>/<?php echo e($isi->nim); ?>">
                                 <button type="submit" class="btn btn-warning">Edit</button>
                             </a>
                         </td>
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </table>
             </div>
         </div>
         </div>
 </body>
 </html>
-{{-- Mahardika Surya Kusuma G.231.21.0141 --}}
+
+<?php /**PATH C:\atil\resources\views/show-data-mahasiswa.blade.php ENDPATH**/ ?>

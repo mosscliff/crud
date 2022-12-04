@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head >
     <title>Laravel 8 Form Example Tutorial</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body>
+
+<body style="background-image: url('https://pbs.twimg.com/profile_images/1456033083514253316/pQyOlEe9_400x400.jpg');">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">Praktikum Laravel</a>
@@ -29,13 +30,13 @@
     </nav>
     <div class="container mt-5">
     <div class="card">
-        <div class="card-header text-center font-weight-bold">
+        <div class="card-header text-center font-weight-bold" style="background-color:DodgerBlue;">
             Input Data Mahasiswa
         </div>
-        <div class="card-body">
+        <div class="card-body" >
             <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('kirim-mahasiswa')}}">
             @csrf
-                <div class="form-group">
+                <div class="form-group" style="background-color:DodgerBlue;">
                     <label for="nim">Nim</label>
                     <input type="text" id="nim" name="nim" class="form-control @error('nim') is-invalid @enderror"  value="{{ old('nim') }}">
                     @error('nim')
